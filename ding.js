@@ -18,7 +18,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     dd.config(ddConfig);
 
     dd.ready(function(){
-        $('h1').html("success!");
+        $('h1').html("success11111");
         dd.biz.util.scanCard({ // 无需传参数
             onSuccess: function(data) {
                 $('p#err').html(JSON.stringify(data));
