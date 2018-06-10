@@ -21,6 +21,16 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     DingTalkPC.ready(function(res){
         console.log("ready");
         $('h1').html("完成校验jsapi");
+        DingTalkPC.device.notification.toast({
+            type: "information", //toast的类型 alert, success, error, warning, information, confirm
+            text: '这里是个toast', //提示信息
+            duration: 3, //显示持续时间，单位秒，最短2秒，最长5秒
+            delay: 0, //延迟显示，单位秒，默认0, 最大限制为10
+            onSuccess : function(result) {
+                /*{}*/
+            },
+            onFail : function(err) {}
+        })
         /*{
             authorizedAPIList: ['device.notification.alert'], //已授权API列表
             unauthorizedAPIList: [''], //未授权API列表
