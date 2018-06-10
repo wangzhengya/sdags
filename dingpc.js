@@ -19,7 +19,8 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     DingTalkPC.config(ddConfig);
 
     DingTalkPC.ready(function(res){
-        alert("ready");
+        console.log("ready");
+        $('h1').html("完成校验jsapi");
         /*{
             authorizedAPIList: ['device.notification.alert'], //已授权API列表
             unauthorizedAPIList: [''], //未授权API列表
