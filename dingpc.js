@@ -23,8 +23,8 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
         $('h1').html("完成校验jsapi");
         DingTalkPC.biz.customContact.choose({
             title: '选人的标题', //标题
-            users: [],//一组员工userid
-            corpId: 'dingb4ff1079f84f8d54',//加密的企业 ID，
+            users: ['1201427089'],//一组员工userid
+            corpId: 'ding28a9b250bb0332ab',//加密的企业 ID，
             isShowCompanyName: true,   //true|false，默认为 false
             onSuccess: function(data) {
             /* data结构
