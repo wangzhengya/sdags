@@ -1,7 +1,7 @@
 console.log("test");
 $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     console.dir(data);
-    dd.config({
+    ddConfig = {
         agentId: 178631091, // 必填，微应用ID
         corpId:  data.corpId,//必填，企业ID
         timeStamp: data.timeStamp, // 必填，生成签名的时间戳
@@ -12,7 +12,9 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
             'device.notification.confirm', 'device.notification.alert',
             'device.notification.prompt', 'biz.ding.post',
             'biz.util.openLink' ,'biz.contact.complexPicker'] // 必填，需要使用的jsapi列表，注意：不要带dd。
-    });
+    };
+    alert(ddConfig);
+    dd.config(ddConfig);
 
     dd.ready(function(){
         alert("ready");
