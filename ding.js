@@ -16,19 +16,9 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     $('p#data').html(JSON.stringify(ddConfig));
     dd.config(ddConfig);
 
-    dd.ready(function(){
-        alert("ready");
-        dd.biz.user.get({
-        //corpId:'xxx', // 可选参数，如果不传则使用用户当前企业的corpId。
-        onSuccess: function (info) {
-            console.log('userGet success: ' + JSON.stringify(info));
-        },
-        onFail: function (err) {
-            console.log('userGet fail: ' + JSON.stringify(err));
-        }
-    });
-    });
-    
+dd.ready(function(){
+    $('h1').html("success");
+});
 
     dd.error(function(err) {
         $('p#err').html(JSON.stringify(err));
