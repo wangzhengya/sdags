@@ -1,4 +1,4 @@
-console.log("test");
+$('h1').html("开始获取个人信息");
 $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     console.dir(data);
     ddConfig = {
@@ -16,9 +16,9 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     $('p#data').html(JSON.stringify(ddConfig));
     dd.config(ddConfig);
 
-dd.ready(function(){
-    $('h1').html("success");
-});
+    dd.ready(function(){
+        $('h1').html("success");
+    });
 
     dd.error(function(err) {
         $('p#err').html(JSON.stringify(err));
