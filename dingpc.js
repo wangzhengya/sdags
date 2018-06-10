@@ -3,7 +3,7 @@ $('h1').html("开始校验jsapi。。。");
 $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     console.dir(data);
     console.log(window.location.href);
-    DingTalkPC = {
+    ddConfig = {
         agentId: '178631091', // 必填，微应用ID
         corpId:  data.corpId,//必填，企业ID
         timeStamp: data.timeStamp, // 必填，生成签名的时间戳
@@ -18,10 +18,14 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     $('p#data').html(JSON.stringify(ddConfig));
     DingTalkPC.config(ddConfig);
 
-    DingTalkPC.ready(function(){
-        $('h1').html("success");
-    });
-
+    DingTalkPC.ready(function(res){
+        alert("ready");
+        /*{
+            authorizedAPIList: ['device.notification.alert'], //已授权API列表
+            unauthorizedAPIList: [''], //未授权API列表
+        }*/
+         // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+      });
     DingTalkPC.error(function(err) {
         $('p#err').html(JSON.stringify(err));
     });
