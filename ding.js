@@ -13,7 +13,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
             'device.notification.prompt', 'biz.ding.post',
             'biz.util.openLink' ,'biz.contact.complexPicker'] // 必填，需要使用的jsapi列表，注意：不要带dd。
     };
-    $('p').html(JSON.stringify(ddConfig));
+    $('p#data').html(JSON.stringify(ddConfig));
     dd.config(ddConfig);
 
     dd.ready(function(){
@@ -31,7 +31,8 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     
 
     dd.error(function(err) {
-        alert('dd error: ' + JSON.stringify(err)+data);
+
+        $('p#err').html(err);
     });
 
 });
