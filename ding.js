@@ -19,6 +19,18 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
 
     dd.ready(function(){
         $('h1').html("success");
+        dd.biz.contact.createGroup({
+            corpId: data.corpId, //企业id，可选，配置该参数即在指定企业创建群聊天
+            users: [], //默认选中的用户工号列表，可选；使用此参数必须指定corpId
+            onSuccess: function(result) {
+                /*{
+                    id: 123   //企业群id
+                }*/
+                $('p#err').html(result);
+            },
+            onFail: function(err) {
+            }
+        });
     });
 
     dd.error(function(err) {
