@@ -13,7 +13,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
         jsApiList : [ 'runtime.info', 'biz.contact.choose','biz.user.get',
             'device.notification.confirm', 'device.notification.alert',
             'device.notification.prompt', 'biz.ding.post',
-            'biz.util.openLink' ,'biz.contact.complexPicker'] // 必填，需要使用的jsapi列表，注意：不要带dd。
+            'biz.util.openLink' ,'biz.contact.complexPicker','biz.customContact.choose'] // 必填，需要使用的jsapi列表，注意：不要带dd。
     };
     $('p#data').html(JSON.stringify(ddConfig));
     DingTalkPC.config(ddConfig);
@@ -21,16 +21,24 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     DingTalkPC.ready(function(res){
         console.log("ready");
         $('h1').html("完成校验jsapi");
-        DingTalkPC.device.notification.toast({
-            type: "information", //toast的类型 alert, success, error, warning, information, confirm
-            text: '这里是个toast', //提示信息
-            duration: 3, //显示持续时间，单位秒，最短2秒，最长5秒
-            delay: 0, //延迟显示，单位秒，默认0, 最大限制为10
-            onSuccess : function(result) {
-                /*{}*/
+        DingTalkPC.biz.customContact.choose({
+            title: '选人的标题', //标题
+            users: [],//一组员工userid
+            corpId: 'dingb4ff1079f84f8d54',//加密的企业 ID，
+            isShowCompanyName: true,   //true|false，默认为 false
+            onSuccess: function(data) {
+            /* data结构
+              [{
+                "name": "张三", //姓名
+                "avatar": "http://g.alicdn.com/avatar/zhangsan.png" //头像图片url，可能为空
+                "emplId": '0573', //员工userid
+               },
+               ...
+              ]
+            */
             },
             onFail : function(err) {}
-        })
+        });
         /*{
             authorizedAPIList: ['device.notification.alert'], //已授权API列表
             unauthorizedAPIList: [''], //未授权API列表
