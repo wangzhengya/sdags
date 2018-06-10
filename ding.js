@@ -4,7 +4,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     dd.config({
         agentId: 178631091, // 必填，微应用ID
         corpId:  data.corpId,//必填，企业ID
-        url:'http://192.168.31.140:3001/index2.html',
+        url:'http://zhengyaing.win/sdags/ding.js',
         timeStamp: data.timeStamp, // 必填，生成签名的时间戳
         nonceStr: data.nonceStr, // 必填，生成签名的随机串
         signature: data.signature, // 必填，签名
