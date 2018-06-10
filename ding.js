@@ -1,6 +1,7 @@
 $('h1').html("开始校验jsapi。。。");
 $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     console.dir(data);
+    console.log(window.location.href);
     ddConfig = {
         agentId: '178631091', // 必填，微应用ID
         corpId:  data.corpId,//必填，企业ID
@@ -22,7 +23,6 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
 
     dd.error(function(err) {
         $('p#err').html(JSON.stringify(err));
-        alert("location");
     });
 
 });
