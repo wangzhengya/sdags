@@ -31,7 +31,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     
 
     dd.error(function(err) {
-        $('p#err').html(JSON.stringify(err)+location.href);
+        $('p#err').html(JSON.stringify(err)+windows.location.href);
     });
 
 });
