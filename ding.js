@@ -12,13 +12,13 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
         jsApiList : [ 'runtime.info', 'biz.contact.choose','biz.user.get',
             'device.notification.confirm', 'device.notification.alert',
             'device.notification.prompt', 'biz.ding.post',
-            'biz.util.openLink' ,'biz.contact.complexPicker'] // 必填，需要使用的jsapi列表，注意：不要带dd。
+            'biz.util.openLink' ,'biz.contact.complexPicker','biz.util.scanCard'] // 必填，需要使用的jsapi列表，注意：不要带dd。
     };
     $('p#data').html(JSON.stringify(ddConfig));
     dd.config(ddConfig);
 
     dd.ready(function(){
-        $('h1').html("success11111");
+        $('h1').html("success2");
         dd.biz.util.scanCard({ // 无需传参数
             onSuccess: function(data) {
                 $('p#err').html(JSON.stringify(data));
