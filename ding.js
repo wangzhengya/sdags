@@ -23,7 +23,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
             // 可选参数，如果不传则使用用户当前企业的corpId。
             onSuccess: function (info) {
                 $('p#err').html(JSON.stringify(info));
-                $('p#err').append("<img src='info.avatar'/>");
+                $('p#err').append("<img src='"+info.avatar+"'/>");
             },
             onFail: function (err) {
                 $('p#err').html(JSON.stringify(err));
