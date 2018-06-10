@@ -38,9 +38,9 @@ console.log("test");
 dd.config({
     "agentId":"178631091",
     "corpId":"ding28a9b250bb0332ab",
-    "timeStamp":1528608825071,
+    "timeStamp":1528609153697,
     "nonceStr":"icepy",
-    "signature":"6e22edf2eb35bbbf1319b17d5c68b1ab98a58e78",
+    "signature":"2b6e8e991a75703d9bb691da4ffb1b69619b16f1",
     "type":0,
     "jsApiList":["runtime.info","biz.contact.choose","biz.user.get","device.notification.confirm","device.notification.alert","device.notification.prompt","biz.ding.post","biz.util.openLink","biz.contact.complexPicker"]
 });
