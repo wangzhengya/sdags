@@ -16,16 +16,17 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
 
     dd.ready(function(){
         alert("ready");
+        dd.biz.user.get({
+        //corpId:'xxx', // 可选参数，如果不传则使用用户当前企业的corpId。
+        onSuccess: function (info) {
+            console.log('userGet success: ' + JSON.stringify(info));
+        },
+        onFail: function (err) {
+            console.log('userGet fail: ' + JSON.stringify(err));
+        }
     });
-    // dd.biz.user.get({
-    //     corpId:'xxx', // 可选参数，如果不传则使用用户当前企业的corpId。
-    //     onSuccess: function (info) {
-    //         console.log('userGet success: ' + JSON.stringify(info));
-    //     },
-    //     onFail: function (err) {
-    //         console.log('userGet fail: ' + JSON.stringify(err));
-    //     }
-    // });
+    });
+    
 
     dd.error(function(err) {
         alert('dd error: ' + JSON.stringify(err));
