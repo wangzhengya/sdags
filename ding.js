@@ -18,7 +18,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
     dd.config(ddConfig);
 
     dd.ready(function(){
-        $('h1').html("success");
+        $('h1').html("success!");
         dd.biz.contact.complexPicker({
             title:"测试标题",            //标题
             corpId:data.corpId,              //企业的corpId
