@@ -12,19 +12,22 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
         jsApiList : [ 'runtime.info', 'biz.contact.choose','biz.user.get',
             'device.notification.confirm', 'device.notification.alert',
             'device.notification.prompt', 'biz.ding.post',
-            'biz.util.openLink' ,'biz.contact.complexPicker','ui.pullToRefresh.enable'] // 必填，需要使用的jsapi列表，注意：不要带dd。
+            'biz.util.openLink' ,'biz.contact.complexPicker','iz.user.get'] // 必填，需要使用的jsapi列表，注意：不要带dd。
     };
     $('p#data').html(JSON.stringify(ddConfig));
     dd.config(ddConfig);
 
     dd.ready(function(){
         $('h1').html("success2");
-        dd.ui.pullToRefresh.enable({
-            onSuccess: function() {
+        dd.biz.user.get({
+            // 可选参数，如果不传则使用用户当前企业的corpId。
+            onSuccess: function (info) {
+                logger.e('userGet success: ' + JSON.stringify(info));
             },
-            onFail: function() {
+            onFail: function (err) {
+                logger.e('userGet fail: ' + JSON.stringify(err));
             }
-        })
+        });
          
     });
 
