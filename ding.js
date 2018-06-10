@@ -24,6 +24,7 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
             onSuccess: function (info) {
                 $('p#err').html(JSON.stringify(info));
                 $('p#err').append("<img src='"+info.avatar+"'/>");
+                $('p#err').append("<h2>"+info.orgUserName+"</h2>");
             },
             onFail: function (err) {
                 $('p#err').html(JSON.stringify(err));
