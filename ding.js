@@ -19,34 +19,27 @@ $.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
 
     dd.ready(function(){
         $('h1').html("success!");
-        dd.biz.contact.complexPicker({
-            title:"测试标题",            //标题
-            corpId:data.corpId,              //企业的corpId
-            multiple:true,            //是否多选
-            limitTips:"超出了",          //超过限定人数返回提示
-            maxUsers:100,            //最大可选人数
-            pickedUsers:[],            //已选用户
-            pickedDepartments:[],          //已选部门
-            disabledUsers:[],            //不可选用户
-            disabledDepartments:[],        //不可选部门
-            requiredUsers:[],            //必选用户（不可取消选中状态）
-            requiredDepartments:[],        //必选部门（不可取消选中状态）
-            appId:'178631091',              //微应用的Id
-            permissionType:GLOBAL,          //选人权限，目前只有GLOBAL这个参数
-            responseUserOnly:false,        //返回人，或者返回人和部门
-            startWithDepartmentId:0 ,   // 0表示从企业最上层开始
-            onSuccess: function(result) {
-                /**
-                {
-                    selectedCount:1,                              //选择人数
-                    users:[{"name":"","avatar":"","emplId":""}]，//返回选人的列表，列表中的对象包含name（用户名），avatar（用户头像），emplId（用户工号）三个字段
-                    departments:[{"id":,"name":"","number":}]//返回已选部门列表，列表中每个对象包含id（部门id）、name（部门名称）、number（部门人数）
-                }
-                */
-               $('p#err').html(JSON.stringify(result));
+        dd.biz.util.scanCard({ // 无需传参数
+            onSuccess: function(data) {
+                $('p#err').html(JSON.stringify(data));
+            //onSuccess将在扫码成功之后回调
+              /* data结构
+               {
+                 "ADDRESS": "深圳市南山区软件产业基地", 
+                 "COMPANY": "深圳市李乔科技有限公司", 
+                 "NAME": "李乔",
+                 "MPHONE": "861333567890",  
+                 "PHONE": "01087654321", 
+                 "POSITION": "CEO", 
+                 "IMAGE": "http://www.taobao.com/xxx.jpg", 
+                 "dt_tranfer": "BusinessCard", 
+                 "request_id": "20161206144554_efd40582d477a29df2e3bc62c260cdae"
+              }
+              */
             },
-           onFail : function(err) {}
-        });
+           onFail : function(err) {
+           }
+        })
     });
 
     dd.error(function(err) {
