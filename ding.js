@@ -1,5 +1,5 @@
 $('h1').html("开始校验jsapi。。。");
-$.get("http://192.168.31.140:3000/api/jsapi-oauth", function(data){
+$.get("http://47.90.4.9:3333/api/jsapi-oauth", function(data){
     console.dir(data);
     console.log(window.location.href);
     ddConfig = {
